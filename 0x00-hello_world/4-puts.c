@@ -1,6 +1,11 @@
 #include <stdio.h>
 
-int main()
+/**
+ * main - Entry point
+ * print to standard output using `puts` buildin function
+ * Return: Always 0 (Success)
+*/
+int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
