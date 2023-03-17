@@ -1,8 +1,8 @@
 #include <stdio.h>
+
 /**
-  * main - Entry point
-  * Check if positive or negative or zero
-  * Return: Always 0 (Success)
+ * main - prints all possible combinations of two two-digit numbers
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
@@ -10,29 +10,24 @@ int main(void)
 
 	for (i = 0; i < 100; i++)
 	{
-		for (j = i; j < 100; j++)
+		for (j = 0; j < 100; j++)
 		{
-			int a = i / 10;
-			int b = i % 10;
-			int c = j / 10;
-			int d = j % 10;
-
-			putchar(a + '0');
-			putchar(b + '0');
-			putchar(' ');
-			putchar(c + '0');
-			putchar(d + '0');
-			if (i == 98 && j == 99)
+			if (i < j)
 			{
-				putchar('\n');
-			}
-			else
-			{
-				putchar(',');
+				putchar((i / 10) + 48);
+				putchar((i % 10) + 48);
 				putchar(' ');
+				putchar((j / 10) + 48);
+				putchar((j % 10) + 48);
+				if (i != 98 || j != 99)
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
+
 		}
 	}
-
+	putchar('\n');
 	return (0);
 }
