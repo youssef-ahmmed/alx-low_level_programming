@@ -13,12 +13,12 @@ int main(void)
 
 	printf("%ld, %ld, ", prev, curr);
 
-	for (i = 2; i < 49; i++)
+	for (i = 2; i < 50; i++)
 	{
 		next = prev + curr;
 		printf("%ld", next);
 
-		if (i < 48)
+		if (i < 49)
 		{
 			printf(", ");
 		}
