@@ -26,6 +26,6 @@ int main(void)
 		prev = curr;
 		curr = next;
 	}
-	printf("\b\b\n");
+	printf("\n");
 	return (0);
 }
