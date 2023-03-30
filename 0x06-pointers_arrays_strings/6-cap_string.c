@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * cap_string - capitalizes all words of a string, 
- * separators by a space, tabulation, new line, `,`, `;`, `.`, `!`, `?`, `"`, `(`, `)`, `{`, and `}`.
+ * cap_string - capitalizes all words of a string,
+ * separators by a space, tabulation, new line, `,`, `;`
+ * , `.`, `!`, `?`, `"`, `(`, `)`, `{`, and `}`.
  * @s: string
  * Return: capitalized string
 */
