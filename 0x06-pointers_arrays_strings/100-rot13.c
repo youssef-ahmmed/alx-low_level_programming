@@ -3,7 +3,7 @@
 /**
  * rot13 - encodes a string in rot13
  * @s: string to be encoded
- * 
+ *
  * Return: encoded string
 */
 char *rot13(char *s)
@@ -19,7 +19,7 @@ char *rot13(char *s)
 		{
 			if (s[i] == alphabet[j])
 			{
-				s[i] = rot13_map[i];
+				s[i] = rot13_map[j];
 				break;
 			}
 		}
