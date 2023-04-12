@@ -22,13 +22,12 @@ char *str_concat(char *s1, char *s2)
 
 	if (str == NULL)
 		return (NULL);
-	
+
 	i = 0;
 	j = 0;
 
 	if (s1)
 	{
-		
 		while ((str[i] = s1[i]) != '\0')
 			i++;
 	}
