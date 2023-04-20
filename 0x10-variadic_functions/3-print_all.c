@@ -1,22 +1,5 @@
 #include "variadic_functions.h"
 /**
- * _strlen - compute the length of a string
- * @s: string
- * Return: length of string
-*/
-int _strlen(const char *s)
-{
-	int len = 0;
-
-	while (s[len])
-	{
-		s++;
-	}
-
-	return (len);
-}
-
-/**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
  * @...: list of arguments
@@ -54,10 +37,9 @@ void print_all(const char * const format, ...)
 				i++;
 				continue;
 		}
-		i++;
 		sep = ", ";
+		i++;
 	}
-
 
 	printf("\n");
 	va_end(args);
