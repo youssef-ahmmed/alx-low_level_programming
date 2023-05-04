@@ -3,18 +3,17 @@
 /**
  * check_binary - check if the char contain only 1's and 0's
  * @b: the number in string format
- * @length: length of the string
  * Return: 1 if it's 0's and 1's, 0 otherwise
  */
 int check_binary(const char *b)
 {
-    int len = 0;
+	int len = 0;
 
 	while (b[len])
 	{
 		if (b[len] != '0' && b[len] != '1')
 			return (0);
-        len++;
+		len++;
 	}
 
 	return (1);
