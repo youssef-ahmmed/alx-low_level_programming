@@ -6,17 +6,18 @@
  * @length: length of the string
  * Return: 1 if it's 0's and 1's, 0 otherwise
  */
-int check_binary(const char *b, int length)
+int check_binary(const char *b)
 {
-	int len = 0;
+    int len = 0;
 
-	while (*b == '1' || *b == '0')
+	while (b[len])
 	{
-		len++;
-		b++;
+		if (b[len] != '0' && b[len] != '1')
+			return (0);
+        len++;
 	}
 
-	return (len == length);
+	return (1);
 }
 
 /**
@@ -26,20 +27,19 @@ int check_binary(const char *b, int length)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int len = strlen(b), i;
-	unsigned int u_int = 0;
+	int len = strlen(b);
+	unsigned int u_int = 0, pow;
 
 	if (b == NULL)
 		return (0);
 
-	if (!check_binary(b, len))
+	if (!check_binary(b))
 		return (0);
 
-	for (i = 0; i < len; i++)
+	for (len--, pow = 1; len >= 0; len--, pow *= 2)
 	{
-		u_int <<= 1;
-		if (b[i] == '1')
-			u_int |= 1;
+		if (b[len] == '1')
+			u_int += pow;
 	}
 
 	return (u_int);
