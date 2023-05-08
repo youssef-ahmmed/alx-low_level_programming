@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 
 	while (r > 0)
 	{
-        w = write(file_to, buffer, r);
+		w = write(file_to, buffer, r);
 
 		check_open_read_write(file_from, r, argv[1], file_to, w, argv[2], buffer);
 
