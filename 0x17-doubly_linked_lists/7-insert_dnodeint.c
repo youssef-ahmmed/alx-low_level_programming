@@ -69,8 +69,11 @@ dlistint_t *get_node_current_index(dlistint_t **h, unsigned int idx)
 	if (!current)
 		return (NULL);
 	if (current->next == NULL)
+	{
+		if (idx != dlistint_len(*h))
+			return (NULL);
 		return (add_dnodeint_end(h, n));
-
+	}
 	new_node = add_dnodeint(&(current->next), n);
 	if (new_node == NULL)
 		return (NULL);
