@@ -56,7 +56,7 @@ dlistint_t
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
-	if (idx >= count)
+	if (idx >= count - 1)
 		return (add_dnodeint_end(h, n));
 
 	new_node = malloc(sizeof(dlistint_t));
