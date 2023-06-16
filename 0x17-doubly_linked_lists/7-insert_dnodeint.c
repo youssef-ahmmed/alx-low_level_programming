@@ -25,19 +25,20 @@ size_t dlistint_len(const dlistint_t *h)
 }
 
 /**
- * get_node_before_index - get index
+ * get_node_current_index - get index
  * @h: pointer to the head of the list
  * @idx: index of the node
  * Return: address of that node
  */
-dlistint_t *get_node_before_index(dlistint_t **h, unsigned int idx)
+dlistint_t *get_node_current_index(dlistint_t **h, unsigned int idx)
 {
 	dlistint_t *current = *h;
-	unsigned int i;
 
-	for (i = 0; i < idx - 1 && current != NULL; i++)
+	while (current != NULL && idx > 1)
+	{
 		current = current->next;
-
+		idx--;
+	}
 	return (current);
 }
 /**
@@ -47,29 +48,33 @@ dlistint_t *get_node_before_index(dlistint_t **h, unsigned int idx)
  * @n: data
  * Return: the address of the new node, or NULL if it failed
  */
-dlistint_t
+	dlistint_t
 *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node, *before;
-	size_t count = dlistint_len(*h);
+	dlistint_t *new_node, *current;
+
+	if (!h)
+		return (NULL);
 
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
-	if (idx >= count - 1)
-		return (add_dnodeint_end(h, n));
+	current = get_node_current_index(h, idx);
 
 	new_node = malloc(sizeof(dlistint_t));
 	if (!new_node)
 		return (NULL);
 
-	before = get_node_before_index(h, idx);
+	current = get_node_current_index(h, idx);
+	if (!current)
+		return (NULL);
+	if (current->next == NULL)
+		return (add_dnodeint_end(h, n));
 
-	new_node->n = n;
-	new_node->next = before->next;
-	new_node->prev = before;
-	before->next->prev = new_node;
-	before->next = new_node;
+	new_node = add_dnodeint(&(current->next), n);
+	if (new_node == NULL)
+		return (NULL);
 
+	new_node->prev = current;
 	return (new_node);
 }
