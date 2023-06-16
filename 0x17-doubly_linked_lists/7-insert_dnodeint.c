@@ -35,7 +35,7 @@ dlistint_t *get_node_before_index(dlistint_t **h, unsigned int idx)
 	dlistint_t *current = *h;
 	unsigned int i;
 
-	for (i = 0; i < idx - 1; i++)
+	for (i = 0; i < idx - 1 && current != NULL; i++)
 		current = current->next;
 
 	return (current);
@@ -47,7 +47,7 @@ dlistint_t *get_node_before_index(dlistint_t **h, unsigned int idx)
  * @n: data
  * Return: the address of the new node, or NULL if it failed
  */
-dlistint_t
+	dlistint_t
 *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new_node, *before;
@@ -65,7 +65,7 @@ dlistint_t
 
 	before = get_node_before_index(h, idx);
 
-    new_node->n = n;
+	new_node->n = n;
 	new_node->next = before->next;
 	new_node->prev = before;
 	before->next->prev = new_node;
