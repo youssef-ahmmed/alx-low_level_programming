@@ -45,15 +45,19 @@ void initialize_table(hash_table_t *table);
 unsigned long int hash_djb2(const unsigned char *str);
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
 
-
+/** insert */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 
+/** search */
 char *hash_table_get(const hash_table_t *ht, const char *key);
+
+/** print */
 void hash_table_print(const hash_table_t *ht);
+
+/** delete */
 void hash_table_delete(hash_table_t *ht);
 
 /** free operations */
 void free_node(hash_node_t *node);
-void free_table(hash_table_t *table);
 
 #endif /* HASH_TABLES_H */

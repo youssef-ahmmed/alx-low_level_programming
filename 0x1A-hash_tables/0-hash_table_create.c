@@ -79,27 +79,3 @@ void free_node(hash_node_t *node)
 	free(node->value);
 	free(node);
 }
-
-/**
- * free_table - free a table
- * @table: table to free
- */
-void free_table(hash_table_t *table)
-{
-	unsigned long int i;
-	hash_node_t *current_node, *temp_node;
-
-	for (i = 0; i < table->size; i++)
-	{
-		current_node = table->array[i];
-		while (current_node)
-		{
-			temp_node = current_node;
-			current_node = current_node->next;
-			free_node(temp_node);
-		}
-	}
-
-	free(table->array);
-	free(table);
-}
