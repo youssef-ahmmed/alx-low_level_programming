@@ -5,7 +5,7 @@ NAME = school
 
 all: ${OBJ}
 	${CC} ${OBJ} -o ${NAME}
-	@rm *.o
+	rm *.o
 
 main.o: main.c
 	${CC} -c main.c
