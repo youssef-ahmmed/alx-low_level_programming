@@ -14,5 +14,7 @@ int exponential_search(int *array, size_t size, int value);
 int binary_search_for_exponential(int *array, size_t start,
 								  size_t end, int value);
 int min(int a, int b);
+int advanced_binary(int *array, size_t size, int value);
+int recursive_binary_search(int *array, int low, int high, int value);
 
 #endif
