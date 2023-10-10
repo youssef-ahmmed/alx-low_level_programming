@@ -2,63 +2,41 @@
 #include <math.h>
 
 /**
- * jump_list - searches for a value in a sorted list of integers
- * @list: pointer to the head of the list to search in
- * @size: number of nodes in the list
- * @value: value to search for
- * Return: pointer to the first node where value is located,
- * or NULL if not found
+ * jump_list - Searches for an algorithm in a sorted singly
+ *             linked list of integers using jump search.
+ * @list: A pointer to the  head of the linked list to search.
+ * @size: The number of nodes in the list.
+ * @value: The value to search for.
+ * Return: If the value is not present or the head of the list is NULL, NULL.
+ *         Otherwise, a pointer to the first node where the value is located.
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	int i;
-	int step = sqrt((int) size);
-	listint_t *curr = list, *prev = list;
+	size_t step, step_size;
+	listint_t *node, *jump;
 
 	if (!list)
 		return (NULL);
 
-	for (i = 0; i < step && curr->next; i++)
-		curr = curr->next;
-
-	while (curr->n < value)
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		printf("Value checked array[%lu] = [%d]\n", curr->index, curr->n);
-		prev = curr;
-		for (i = 0; i < step && curr->next; i++)
-			curr = curr->next;
-
-		if (curr->index >= size - 1)
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
 		{
-			printf("Value found between indexes [%lu] and [%lu]\n",
-				   prev->index, curr->index);
-			return (search_list(prev, curr, value));
+			if (jump->index + 1 == size)
+				break;
 		}
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
 
-	printf("Value checked array[%lu] = [%d]\n", curr->index, curr->n);
-	printf("Value found between indexes [%lu] and [%lu]\n",
-		   prev->index, curr->index);
+	printf("Value found between indexes [%ld] and [%ld]\n",
+	       node->index, jump->index);
 
-	return (search_list(prev, curr, value));
-}
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
 
-/**
- * search_list - searches for a value in a sorted list of integers
- * @start: pointer to the head of the list to search in
- * @end: pointer to the end of the list to search in
- * @value: value to search for
- * Return: pointer to the first node where value is located,
- */
-listint_t *search_list(listint_t *start, listint_t *end, int value)
-{
-	while (start && start != end->next)
-	{
-		printf("Value checked array[%lu] = [%d]\n", start->index, start->n);
-		if (value == start->n)
-			return (start);
-		start = start->next;
-	}
-
-	return (NULL);
+	return (node->n == value ? node : NULL);
 }
