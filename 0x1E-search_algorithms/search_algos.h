@@ -4,6 +4,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * struct listint_s - singly linked list
+ *
+ * @n: Integer
+ * @index: Index of the node in the list
+ * @next: Pointer to the next node
+ *
+ * Description: singly linked list node structure
+ */
+typedef struct listint_s
+{
+	int n;
+	size_t index;
+	struct listint_s *next;
+} listint_t;
+
 int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
 void print_search_range(int *array, int low, int high);
@@ -16,5 +32,13 @@ int binary_search_for_exponential(int *array, size_t start,
 int min(int a, int b);
 int advanced_binary(int *array, size_t size, int value);
 int recursive_binary_search(int *array, int low, int high, int value);
+
+listint_t *jump_list(listint_t *list, size_t size, int value);
+listint_t *search_list(listint_t *start, listint_t *end, int value);
+
+/** linked list helper functions */
+listint_t *create_list(int *array, size_t size);
+void free_list(listint_t *list);
+void print_list(const listint_t *list);
 
 #endif
