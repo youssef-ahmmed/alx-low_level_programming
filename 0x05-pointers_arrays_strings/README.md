@@ -18,10 +18,6 @@
 * How to use strings and how to manipulate them
 * Scope of variables
 
-## Tests
-
-* [tests](./tests): Folder of test files.
-
 ## Helper File
 
 * [_putchar.c](./_putchar.c): C function that writes a character to `stdout`.
@@ -32,7 +28,7 @@
 * [main.h](main.h): Header file containing prototypes for all functions written in the project.
 
 | File              | Prototype                               |
-| ----------------- | --------------------------------------- |
+|-------------------|-----------------------------------------|
 | `0-reset_to_98.c` | `void reset_to_98(int *n);`             |
 | `1-swap.c`        | `void swap_int(int *a, int *b);`        |
 | `2-strlen.c`      | `int _strlen(char *s);`                 |

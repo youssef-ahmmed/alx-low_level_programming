@@ -14,10 +14,6 @@
 * What are some methods of debugging manually
 * How to read the error messages
 
-## Tests
-
-* [tests](./tests): Folder of test files.
-
 ## Header File
 
 * [main.h](./main.h): Header file containing prototypes for all functions written in the project.

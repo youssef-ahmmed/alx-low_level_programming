@@ -21,10 +21,6 @@
 * What are the <code>gcc</code> flags <code>-Wall -Werror -pedantic -Wextra -std=gnu89</code>
 * What are header files and how to to use them with <code>#include</code>
 
-## Tests
-
-* [tests](./tests): Folder of test files.
-
 ## Helper File
 
 * [_putchar.c](./_putchar.c): C function that writes a character to `stdout`.
@@ -35,7 +31,7 @@
   functions written in the project.
 
 | File                     | Prototype                        |
-| ------------------------ | -------------------------------- |
+|--------------------------|----------------------------------|
 | `1-alphabet.c`           | `void print_alphabet(void);`     |
 | `2-print_alphabet_x10.c` | `void print_alphabet_x10(void);` |
 | `3-islower.c`            | `int _islower(int c);`           |
