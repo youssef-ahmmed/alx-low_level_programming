@@ -15,16 +15,12 @@
 * Why and when use <code>malloc</code>
 * How to use <code>valgrind</code> to check for memory leak
 
-## Tests
-
-* [tests](./tests): Folder of test files.
-
 ## Header File
 
 * [main.h](main.h): Header file containing prototypes for all functions written in the project.
 
 | File               | Protoype                                         |
-| ------------------ | ------------------------------------------------ |
+|--------------------|--------------------------------------------------|
 | `0-create_array.c` | `char *create_array(unsigned int size, char c);` |
 | `1-strdup.c`       | `char *_strdup(char *str);`                      |
 | `2-str_concat.c`   | `char *str_concat(char *s1, char *s2);`          |
